@@ -11,7 +11,7 @@ que se les agoten los intentos.*/
 int main()
 {
 
-	 //animacion_de_carga();
+	 animacion_de_carga();
 	do
 	{
 		switch (menu_principal())
