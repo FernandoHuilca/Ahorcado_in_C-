@@ -1,22 +1,123 @@
-
+﻿
 #include "menus_y_sus_decoraciones.h"
+#include "decoraciones.h"
+
+//Funcion que da color al texto seleccionado en cada momento
+void seleccion_color(string text, int fila, int columna, bool seleccion)
+{
+	if (!seleccion)
+	{
+		rlutil::locate(columna, fila);
+		rlutil::setBackgroundColor(rlutil::COLOR::CYAN);
+		cout << text;
+		rlutil::setBackgroundColor(rlutil::COLOR::LIGHTCYAN);
+		rlutil::locate(columna - 2, fila);
+		cout << (char)175;
+	}
+	else
+	{
+		rlutil::setBackgroundColor(rlutil::COLOR::LIGHTCYAN);
+		rlutil::locate(columna, fila);
+		cout << " " << text;
+		rlutil::locate(columna - 2, fila);
+		cout << " ";
+	}
+}
+
 
 int menu_principal()
 {
-	int opcion;
-	do
+
+	int tecla;
+	int ok = 0;
+
+	int fila_op_verticales = 15;
+	int columna_op_verticales = 50;
+	int fila_op_horizontales = 27;
+	int columna_op_horizontales = 10;
+	int separacion_op_horizontales = 92;
+
+
+	// Establecer el color de fondo de la consola (en este caso, rojo)
+	rlutil::setBackgroundColor(rlutil::LIGHTCYAN);
+	// Borrar la pantalla para que el color de fondo se aplique en toda la consola
+	rlutil::cls();
+	rlutil::setColor(rlutil::COLOR::BLACK); //Le da color a las letras  
+
+	dibujo_cuadrado(42, 12, 36, 9);
+	dibujo_cuadrado(100, 25, 11, 4);
+	dibujo_cuadrado(10, 25, 11, 4);
+	bienvenida(6, 52);
+
+	while (true)
 	{
-		cout << " 1. Empezar a jugar" << endl;
-		cout << " 2. Instrucciones" << endl;
-		cout << " 0. Salir" << endl;
-		cin >> opcion;
+		seleccion_color(" Jugar Vs Compu      ", fila_op_verticales, columna_op_verticales, ok);
+		seleccion_color(" Jugar Vs Persona    ", fila_op_verticales + 1, columna_op_verticales, ok + 1);
+		seleccion_color(" Instrucciones juego ", fila_op_verticales + 2, columna_op_verticales, ok + 2);
+		seleccion_color(" Sonido ", fila_op_horizontales, columna_op_horizontales + separacion_op_horizontales, ok + 3);
+		seleccion_color(" Salir  ", fila_op_horizontales, columna_op_horizontales, ok + 4);
 
-		if (opcion < 0 || opcion > 2)
+		tecla = rlutil::getkey();
+		switch (tecla)
 		{
-			cout << "ERROR: El numero ingresado esta fuera de los parametros" << endl;
-			cout << "Intente nuevamente." << endl;
-		}
+		case 14: //SUBIR
+		{
+			if (ok == 0)
+			{
+				ok = ok - 2;
+			}
+			else
+			{
+				if (ok == -4)
+				{
+					ok = ok + 2;
+				}
+				else
+				{
+					ok = ok + 1;
+				}
+			}
 
-	} while (opcion < 0 || opcion > 2);
-	return opcion;
+			break;
+		}
+		case 15: //BAJAR
+		{
+			if ((ok == -2) || (ok == -3) || (ok == -4))
+			{
+
+				ok = 0;
+			}
+			else
+			{
+				ok = ok - 1;
+			}
+			break;
+		}
+		case 17: //derecha
+		{
+			ok = -3;
+			break;
+		}
+		case 16: //Izquierda
+		{
+			ok = -4;
+			break;
+		}
+		case 1: // Enter
+		{
+			return ok;
+		}
+		}
+	}
+}
+
+
+
+void bienvenida(int fila, int columna)
+{
+    rlutil::locate(columna, fila);
+    cout << "Juego del Ahorcado";
+    rlutil::locate(columna, fila + 1);
+    cout << "_____ ___ ________";
+
 }

@@ -5,6 +5,7 @@ que se les agoten los intentos.*/
 #include "animacion_carga_inicio.h"
 #include "menus_y_sus_decoraciones.h"
 #include "instrucciones_del_juego.h"
+#include "interfaz_grafica_principal.h"
 
 
 int main()
@@ -14,13 +15,19 @@ int main()
 	cout << "____BIENVENIDO AL JUEGO DEL AHORCADO____" << endl;
 	switch (menu_principal())
 	{
-	case 1: 
+	case 0: 
 	{
 
 		break;
 	}
 
-	case 2:
+	case -1:
+	{
+		
+		break;
+	}
+
+	case -2:
 	{
 		switch (instrucciones())
 		{
@@ -38,10 +45,13 @@ int main()
 			break;
 		}
 		}
-		break;
 	}
 
-	case 0: 
+	case -3: 
+	{
+		break;
+	}
+	case -4:
 	{
 		cout << "Gracias por jugar" << endl;
 		break;
