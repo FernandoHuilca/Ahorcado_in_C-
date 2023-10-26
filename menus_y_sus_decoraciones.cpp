@@ -2,7 +2,7 @@
 #include "menus_y_sus_decoraciones.h"
 #include "decoraciones.h"
 
-//Funcion que da color al texto seleccionado en cada momento
+
 void seleccion_color(string text, int fila, int columna, bool seleccion)
 {
 	if (!seleccion)

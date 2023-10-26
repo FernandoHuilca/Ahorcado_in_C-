@@ -11,52 +11,62 @@ que se les agoten los intentos.*/
 int main()
 {
 
-	animacion_de_carga();
-	cout << "____BIENVENIDO AL JUEGO DEL AHORCADO____" << endl;
-	switch (menu_principal())
+	 //animacion_de_carga();
+	do
 	{
-	case 0: 
-	{
-
-		break;
-	}
-
-	case -1:
-	{
-		
-		break;
-	}
-
-	case -2:
-	{
-		switch (instrucciones())
+		switch (menu_principal())
 		{
-		case 1:
-		{
-			break;
-		}
-		case 2:
-		{
-			instrucciones_VS_otherPlayer();
-			break;
-		}
 		case 0:
 		{
+
+			break;
+		}
+
+		case -1:
+		{
+
+			break;
+		}
+
+		case -2:
+		{
+			bool salir = true;
+			while (salir)
+			{
+				switch (instrucciones())
+				{
+				case 0:
+				{
+					instrucciones_VS_computadora();
+					break;
+				}
+				case -1:
+				{
+					instrucciones_VS_otherPlayer();
+					break;
+				}
+				case -2:
+				{
+					salir = false;
+					break;
+				}
+				}
+			} 
+			break;
+		}
+
+		case -3:
+		{
+			break;
+		}
+		case -4:
+		{
+			cout << "Gracias por jugar" << endl;
 			break;
 		}
 		}
-	}
+	} while (menu_principal() != -4);
 
-	case -3: 
-	{
-		break;
-	}
-	case -4:
-	{
-		cout << "Gracias por jugar" << endl;
-		break;
-	}
-	}
 
 
 }
