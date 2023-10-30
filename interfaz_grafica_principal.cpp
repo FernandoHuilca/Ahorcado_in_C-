@@ -1,9 +1,9 @@
 #include "interfaz_grafica_principal.h"
 
-void creador_Fer()
+void creador_Fer(int fila, int columna)
 {
     rlutil::setColor(rlutil::COLOR::WHITE); //Le da color a las letras 
-    rlutil::locate(108, 30);
+    rlutil::locate(columna, fila);
     cout << "~ Fernando H.";
 }
 

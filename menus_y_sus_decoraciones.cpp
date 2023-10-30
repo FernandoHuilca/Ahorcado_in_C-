@@ -1,6 +1,7 @@
 ﻿
 #include "menus_y_sus_decoraciones.h"
 #include "decoraciones.h"
+#include "interfaz_grafica_principal.h"
 
 
 void seleccion_color(string text, int fila, int columna, bool seleccion)
@@ -42,6 +43,7 @@ int menu_principal()
 	rlutil::setBackgroundColor(rlutil::LIGHTCYAN);
 	// Borrar la pantalla para que el color de fondo se aplique en toda la consola
 	rlutil::cls();
+	creador_Fer(30,108);
 	rlutil::setColor(rlutil::COLOR::BLACK); //Le da color a las letras  
 
 	dibujo_cuadrado(42, 12, 36, 9);

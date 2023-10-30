@@ -2,4 +2,5 @@
 #include "rlutil.h"
 #include <iostream>
 using namespace std; 
-void creador_Fer();
+//Muestra el nombre del creador del codigo para el juego
+void creador_Fer(int fila, int columna);

@@ -3,6 +3,7 @@
 #include <string>
 using namespace std;
 #include "rlutil.h"
+#include <cctype>  // Incluir la biblioteca para funciones de caracteres
 
 //Funcion que permite jugar vs otra persona, todo lo necesario para dicho juego 
 void jugar_vs_persona(); 
@@ -17,4 +18,8 @@ void seleccion_color_4(string text, int fila, int columna, bool seleccion);
 //Verifica si la letra ingresada por el usuario esta dentro de la palabra
 void verificacion_letra(string& palabra, bool& encontrado, char& letra2);
 //Dibuja unas rayas que representann cada letra que tiene la palabra en una ubicacion dada
-void dibujo_espacios_letras(int can_letras, int fila, int columna);
+void dibujo_espacios_letras(int can_letras);
+//Funcion que permite visualizar el numero de intentos que se tiene
+void vidas_intenos(int fila, int columna, int intentos); 
+//Funcion que va dibujando las letras en caso de que se acierte 
+void mostrar_letras(const string& palabra, char letra, int fila, int columna, string& aux_palabra);
