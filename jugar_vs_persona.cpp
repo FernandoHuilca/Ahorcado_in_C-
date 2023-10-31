@@ -1,5 +1,6 @@
 #include "jugar_vs_persona.h"
 #include "decoraciones.h"
+#include "dibujo_ahorcado.h"
 
 void jugar_vs_persona()
 {
@@ -15,6 +16,8 @@ void jugar_vs_persona()
 		bool correcto;// boleano para saber si acerto o no 
 		int intentos = NULL;
 		int long_palabra;
+		int intentos_const;
+		int numero_dibujo_partes=0;
 		string palabra_dibujar; 
 		string palabra;
 		dibujo_cuadrado(5, 2, 111, 27);
@@ -31,11 +34,13 @@ void jugar_vs_persona()
 		rlutil::locate(25, 12);
 		cout << "Seleccione el numero de intentos que tiene para adivinar: ";
 		intentos = intentos_permitidos();
+		intentos_const = intentos;
 		rlutil::cls();
-		rlutil::locate(50, 10);
+		rlutil::locate(22, 10);
 		dibujo_espacios_letras(long_palabra);
 		dibujo_cuadrado(5, 2, 111, 27);
-		vidas_intenos(3, 6, intentos);
+		vidas_intenos(3, 10, intentos);
+		dibujo_cadalso(3, 84);
 
 
 		while (intentos != 0 && gano_perdio == false)
@@ -49,40 +54,45 @@ void jugar_vs_persona()
 				// Borrar la pantalla para que el color de fondo se aplique en toda la consola
 				rlutil::cls();
 				dibujo_cuadrado(5, 2, 111, 27);
-				rlutil::locate(50, 10);
+				rlutil::locate(22, 10);
 				dibujo_espacios_letras(long_palabra);
+				dibujo_cadalso(3, 84);//dibuja el cadalso nuevamente
+				dibujo_completo(numero_dibujo_partes, 6, 80, intentos_const); //dibuja al muerto xd
 				rlutil::setColor(rlutil::COLOR::BLACK); //Le da color a las letras  
-				rlutil::locate(8, 17);
+				rlutil::locate(10, 17);
 				cout << "Correcto!! la letra \"" << letra2 << "\" si forma parte de la palabra" << endl;
-				mostrar_letras(palabra_dibujar, letra2, 9, 51, aux_palabra);
+				mostrar_letras(palabra_dibujar, letra2, 9, 23, aux_palabra);
 				if (palabra.empty())
 				{
 					gano_perdio = true; 
 				}
 				else
 				{
-					rlutil::locate(8, 18);
+					rlutil::locate(10, 18);
 					cout << "Aun te quedan: " << intentos << " intentos." << endl;
-					vidas_intenos(3, 6, intentos);
+					vidas_intenos(3, 10, intentos);
 				}
 			}
 			else
 			{
+				numero_dibujo_partes += 1;
 				// Establecer el color de la consola en caso de errar en la letra
 				rlutil::setBackgroundColor(rlutil::RED);
 				// Borrar la pantalla para que el color de fondo se aplique en toda la consola
 				rlutil::cls();
-				rlutil::locate(50, 10);
+				rlutil::locate(22, 10);
 				dibujo_espacios_letras(long_palabra);
+				dibujo_cadalso(3, 84); //dibuja el cadalso nuevamente
+				dibujo_completo(numero_dibujo_partes, 6, 80, intentos_const);//dibuja al muerto xd
 				dibujo_cuadrado(5, 2, 111, 27);
 				rlutil::setColor(rlutil::COLOR::BLACK); //Le da color a las letras  
-				rlutil::locate(8, 17);
+				rlutil::locate(10, 17);
 				cout << "Incorrecto!! la letra \"" << letra2 << "\" no forma parte de la palabra" << endl;
 				intentos--;
-				rlutil::locate(8, 18);
+				rlutil::locate(10, 18);
 				cout << "Te quedan " << intentos << " intentos." << endl;
-				vidas_intenos(3, 6, intentos);
-				mostrar_letras(palabra_dibujar, letra2, 9, 51, aux_palabra);
+				vidas_intenos(3, 10, intentos);
+				mostrar_letras(palabra_dibujar, letra2, 9, 23, aux_palabra);
 			}
 			if (intentos == 0)
 			{
@@ -188,7 +198,7 @@ int salir_volverAjugar(bool victoria)
 void verificacion_letra(string &palabra, bool &encontrado, char &letra2)
 {
 	char letra;
-	rlutil::locate(8, 15);
+	rlutil::locate(10, 15);
 	cout << "Escriba la letra que cree esta dentro de la palabra: ";
 	cin >> letra;
 	letra = toupper(letra);
@@ -302,7 +312,6 @@ void dibujo_espacios_letras(int can_letras)
 	for (int i = 0; i < can_letras; i++)
 	{
 		int j = 0;
-		//rlutil::locate(columna+(i +j), fila);
 		cout << " " << (char)196 << " ";
 		j = j + 20;
 	}
