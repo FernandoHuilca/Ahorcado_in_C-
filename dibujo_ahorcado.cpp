@@ -470,3 +470,128 @@ void dibujo_cadalso(int fila, int columna)
 	cout << "/____________________________\\" << endl;
 }
 
+void dibujo_victoria(int fila, int columna)
+{
+	rlutil::locate(columna, fila);
+	cout << "        \\\\\\\\\\\\\\" << endl;
+	rlutil::locate(columna, fila + 1);
+	cout << "        |      |" << endl;
+	rlutil::locate(columna, fila + 2);
+	cout << "        | ^  ^ |" << endl;
+	rlutil::locate(columna, fila + 3);
+	cout << "        |  ~   |       \\__" << endl;
+	rlutil::locate(columna, fila + 4);
+	cout << "Gracias! \\ -- /        |\\ |" << endl;
+	rlutil::locate(columna, fila + 5);
+	cout << "       ___|  |___      | \\|" << endl;
+	rlutil::locate(columna, fila + 6);
+	cout << "     /            \\    |__|" << endl;
+	rlutil::locate(columna, fila + 7);
+	cout << "    /  /| .  . |\\  \\ / /" << endl;
+	rlutil::locate(columna, fila + 8);
+	cout << "  <  <  |      | \\    /" << endl;
+	rlutil::locate(columna, fila + 9);
+	cout << "   \\  \\ |  .   |  \\__/" << endl;
+	rlutil::locate(columna, fila + 10);
+	cout << "    \\ __|______|" << endl;
+	rlutil::locate(columna, fila + 11);
+	cout << "        |      |" << endl;
+	rlutil::locate(columna, fila + 12);
+	cout << "        |  |   |" << endl;
+	rlutil::locate(columna, fila + 13);
+	cout << "        |__|___|" << endl;
+	rlutil::locate(columna, fila + 14);
+	cout << "        |  |  |" << endl;
+	rlutil::locate(columna, fila + 15);
+	cout << "        (  (  |" << endl;
+	rlutil::locate(columna, fila + 16);
+	cout << "       _|  |  |" << endl;
+	rlutil::locate(columna, fila + 17);
+	cout << "   cccC_Cccc___)" << endl;
+}
+
+
+void dibujo_perdida(int fila, int columna)
+{
+	rlutil::locate(columna, fila);
+	cout << "     \\\\\\\\\\\\\\\\" << endl;
+	rlutil::locate(columna, fila + 1);
+	cout << "      |      |" << endl;
+	rlutil::locate(columna, fila + 2);
+	cout << "      | X  X |" << endl;
+	rlutil::locate(columna, fila + 3);
+	cout << "      |  ~   |" << endl;
+	rlutil::locate(columna, fila + 4);
+	cout << "       \\  - / " << endl;
+	rlutil::locate(columna, fila + 5);
+	cout << "     ___|##|___" << endl;
+	rlutil::locate(columna, fila + 6);
+	cout << "   /            \\" << endl;
+	rlutil::locate(columna, fila + 7);
+	cout << "  /  /| .  . |\\  \\" << endl;
+	rlutil::locate(columna, fila + 8);
+	cout << " /  / |      | \\  \\" << endl;
+	rlutil::locate(columna, fila + 9);
+	cout << "<  <  |  .   |  >  >" << endl;
+	rlutil::locate(columna, fila + 10);
+	cout << "|  |  |______|  |  |" << endl;
+	rlutil::locate(columna, fila + 11);
+	cout << "|__|  |   |  |  |__|" << endl;
+	rlutil::locate(columna, fila + 12);
+	cout << "\\__/ /   / \\  \\ \\__/" << endl;
+	rlutil::locate(columna, fila + 13);
+	cout << "    /____| |___\\" << endl;
+	rlutil::locate(columna, fila + 14);
+	cout << "     |  |   |  |" << endl;
+	rlutil::locate(columna, fila + 15);
+	cout << "     (  |   (  |" << endl;
+	rlutil::locate(columna, fila + 16);
+	cout << "     |  |   |  |" << endl;
+	rlutil::locate(columna, fila + 17);
+	cout << "    _|  |   |  |" << endl;
+	rlutil::locate(columna, fila + 18);
+	cout << " ccC____) Ccc___)" << endl;
+}
+
+void dibujo_policia(int fila, int columna)
+{
+	rlutil::locate(columna, fila);
+	cout << "                      ________________" << endl;
+	rlutil::locate(columna, fila + 1);
+	cout << "                      \\      __      /         __" << endl;
+	rlutil::locate(columna, fila + 2);
+	cout << "                       \\_____()_____/         /  )" << endl;
+	rlutil::locate(columna, fila + 3);
+	cout << "                       '============`        /  /" << endl;
+	rlutil::locate(columna, fila + 4);
+	cout << "                        |---\\  /---|        /  /" << endl;
+	rlutil::locate(columna, fila + 5);
+	cout << "                       (| @\\| |/@  |)      /  /" << endl;
+	rlutil::locate(columna, fila + 6);
+	cout << "                        \\   (_)   /       /  /" << endl;
+	rlutil::locate(columna, fila + 7);
+	cout << "                        |\\ '---` /|      /  /   USTED ES RESPONSABLE" << endl;
+	rlutil::locate(columna, fila + 8);
+	cout << "                _______/ \\\\_____// \\____/ o_|   DE ESTA MUERTE??!!!" << endl;
+	rlutil::locate(columna, fila + 9);
+	cout << "               /       \\  /     \\  /   / o_|" << endl;
+	rlutil::locate(columna, fila + 10);
+	cout << "              / |           o|        / o_| \\" << endl;
+	rlutil::locate(columna, fila + 11);
+	cout << "             /  |  _____     |       / /   \\ \\" << endl;
+	rlutil::locate(columna, fila + 12);
+	cout << "            /   |  |===|    o|      / /    \\ \\" << endl;
+	rlutil::locate(columna, fila + 13);
+	cout << "           |    |   @/      |     / /      \\ \\" << endl;
+	rlutil::locate(columna, fila + 14);
+	cout << "           |    |___________o|__/----)   \\    \\/" << endl;
+	rlutil::locate(columna, fila + 15);
+	cout << "           |    '              ||  --)    \\     |" << endl;
+	rlutil::locate(columna, fila + 16);
+	cout << "           |___________________||  --)     \\    /" << endl;
+	rlutil::locate(columna, fila + 17);
+	cout << "                |           o|   ''''   |   \\__/" << endl;
+	rlutil::locate(columna, fila + 18);
+	cout << "                |            |          |" << endl;
+
+}

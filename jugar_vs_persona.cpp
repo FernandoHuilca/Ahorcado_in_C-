@@ -5,13 +5,15 @@
 void jugar_vs_persona()
 {
 	bool gano_perdio = false; //controla si se gano o no el juego
-	// Establecer el color de la consola 
-	rlutil::setBackgroundColor(rlutil::LIGHTMAGENTA);
-	// Borrar la pantalla para que el color de fondo se aplique en toda la consola
-	rlutil::cls();
-	rlutil::setColor(rlutil::COLOR::BLACK); //Le da color a las letras  
+
 	do
 	{
+		gano_perdio = false; 
+		// Establecer el color de la consola 
+		rlutil::setBackgroundColor(rlutil::LIGHTMAGENTA);
+		// Borrar la pantalla para que el color de fondo se aplique en toda la consola
+		rlutil::cls();
+		rlutil::setColor(rlutil::COLOR::BLACK); //Le da color a las letras  
 
 		bool correcto;// boleano para saber si acerto o no 
 		int intentos = NULL;
@@ -110,16 +112,40 @@ void seleccion_color_3(string text, int fila, int columna, bool seleccion)
 	if (!seleccion)
 	{
 		rlutil::locate(columna, fila);
-		rlutil::setBackgroundColor(rlutil::COLOR::RED);
+		rlutil::setBackgroundColor(rlutil::COLOR::BLACK);
 		rlutil::setColor(rlutil::COLOR::WHITE); //Le da color a las letras  
 		cout << text;
-		rlutil::setBackgroundColor(rlutil::COLOR::LIGHTRED);
+		rlutil::setBackgroundColor(rlutil::COLOR::GREY);
+		rlutil::setColor(rlutil::COLOR::BLACK);//color de >>
 		rlutil::locate(columna - 2, fila);
 		cout << (char)175;
 	}
 	else
 	{
+		rlutil::setBackgroundColor(rlutil::COLOR::GREY); //subrayado mientras no esta seleccionado
+		rlutil::setColor(rlutil::COLOR::BLACK); //Le da color a las letras  
+		rlutil::locate(columna, fila);
+		cout << " " << text;
+		rlutil::locate(columna - 2, fila);
+		cout << " ";
+	}
+}
+void seleccion_color_5(string text, int fila, int columna, bool seleccion)
+{
+	if (!seleccion)
+	{
+		rlutil::locate(columna, fila);
+		rlutil::setBackgroundColor(rlutil::COLOR::RED); //contorno de la palabra seleccionada
+		rlutil::setColor(rlutil::COLOR::WHITE); //Le da color a las letras  
+		cout << text;
 		rlutil::setBackgroundColor(rlutil::COLOR::LIGHTRED);
+		rlutil::setColor(rlutil::COLOR::WHITE);//color de >>
+		rlutil::locate(columna - 2, fila);
+		cout << (char)175;
+	}
+	else
+	{
+		rlutil::setBackgroundColor(rlutil::COLOR::LIGHTRED); //subrayado mientras no esta seleccionado
 		rlutil::setColor(rlutil::COLOR::BLACK); //Le da color a las letras  
 		rlutil::locate(columna, fila);
 		cout << " " << text;
@@ -133,10 +159,16 @@ int salir_volverAjugar(bool victoria)
 	if (victoria == true)
 	{
 		// Establecer el color de la consola en caso de ganar el juego
-		rlutil::setBackgroundColor(rlutil::LIGHTCYAN);
+		rlutil::setBackgroundColor(rlutil::GREY);
 		// Borrar la pantalla para que el color de fondo se aplique en toda la consola
 		rlutil::cls();
-		cout << "FELICIDADES, GANO EL JUEGO!!" << endl;
+		dibujo_cuadrado(5, 2, 111, 27);
+		rlutil::locate(50, 5);
+		cout << "FELICIDADES, GANO EL JUEGO!!";
+		rlutil::locate(50, 6);
+		cout << "___________  ____ __ _____";
+		dibujo_victoria(9,51);
+
 	}
 	else
 	{
@@ -144,20 +176,35 @@ int salir_volverAjugar(bool victoria)
 		rlutil::setBackgroundColor(rlutil::LIGHTRED);
 		// Borrar la pantalla para que el color de fondo se aplique en toda la consola
 		rlutil::cls();
+		dibujo_cuadrado(5, 2, 111, 27);
+		rlutil::locate(50, 5);
 		cout << "Oh no, PERDIO EL JUEGO!!" << endl;
+		rlutil::locate(50, 6);
+		cout << "__ __  ______ __ _____";
+		dibujo_perdida(5, 85);
+		dibujo_policia(6,5); 
 	}
 	int tecla;
 	int ok = 0;
-	int fila_op_horizontales = 27;
-	int columna_op_horizontales = 10;
-	int separacion_op_horizontales = 92;
+	int fila_op_horizontales = 26;
+	int columna_op_horizontales = 14;
+	int separacion_op_horizontales = 83;
 
 	rlutil::setColor(rlutil::COLOR::BLACK); //Le da color a las letras  
 
 	while (true)
 	{
-		seleccion_color_3(" Salir ", fila_op_horizontales, columna_op_horizontales + separacion_op_horizontales, ok);
-		seleccion_color_3(" Volver a jugar ", fila_op_horizontales, columna_op_horizontales, ok + 1);
+		if (victoria == true)
+		{
+			seleccion_color_3(" Salir ", fila_op_horizontales, columna_op_horizontales + separacion_op_horizontales, ok);
+			seleccion_color_3(" Volver a jugar ", fila_op_horizontales, columna_op_horizontales, ok + 1);
+		}
+		else
+		{
+			seleccion_color_5(" Salir ", fila_op_horizontales, columna_op_horizontales + separacion_op_horizontales, ok);
+			seleccion_color_5(" Volver a jugar ", fila_op_horizontales, columna_op_horizontales, ok + 1);
+		}
+		
 
 		tecla = rlutil::getkey();
 		switch (tecla)

@@ -7,19 +7,20 @@ que se les agoten los intentos.*/
 #include "instrucciones_del_juego.h"
 #include "interfaz_grafica_principal.h"
 #include "jugar_vs_persona.h"
+#include "jugar_vs_computadora.h"
 
 
 int main()
 {
 
-	animacion_de_carga();
+	//animacion_de_carga();
 	do
 	{
 		switch (menu_principal())
 		{
 		case 0:
 		{
-
+			jugar_vs_computadora();
 			break;
 		}
 

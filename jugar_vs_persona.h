@@ -9,8 +9,10 @@ using namespace std;
 void jugar_vs_persona(); 
 //Funcion que una vez terminado el juego obliga al usuario a aplastar enter para salir 
 int salir_volverAjugar(bool victoria);
-//Para las opciones de salir o volver a jugar 
+//Para las opciones de salir o volver a jugar caso de victoria
 void seleccion_color_3(string text, int fila, int columna, bool seleccion);
+////Para las opciones de salir o volver a jugar caso de derrota
+void seleccion_color_5(string text, int fila, int columna, bool seleccion);
 //Permite al usuario escoger entre las 3 opciones de intentos para el juego
 int intentos_permitidos();
 //Funcion que da color a la seleccion de los intentos
