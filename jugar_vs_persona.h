@@ -3,6 +3,8 @@
 #include <string>
 using namespace std;
 #include "rlutil.h"
+#include "decoraciones.h"
+#include "dibujo_ahorcado.h"
 #include <cctype>  // Incluir la biblioteca para funciones de caracteres
 
 //Funcion que permite jugar vs otra persona, todo lo necesario para dicho juego 

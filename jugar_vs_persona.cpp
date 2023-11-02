@@ -1,6 +1,4 @@
 #include "jugar_vs_persona.h"
-#include "decoraciones.h"
-#include "dibujo_ahorcado.h"
 
 void jugar_vs_persona()
 {
