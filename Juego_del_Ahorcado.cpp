@@ -6,8 +6,7 @@ que se les agoten los intentos.*/
 #include "menus_y_sus_decoraciones.h"
 #include "instrucciones_del_juego.h"
 #include "interfaz_grafica_principal.h"
-#include "jugar_vs_persona.h"
-#include "jugar_vs_computadora.h"
+#include "jugar_vs_persona_compu.h"
 
 
 int main()
@@ -20,13 +19,13 @@ int main()
 		{
 		case 0:
 		{
-			jugar_vs_computadora();
+			jugar_vs_persona_compu(0);
 			break;
 		}
 
 		case -1:
 		{
-			jugar_vs_persona(); 
+			jugar_vs_persona_compu(-1); 
 			break;
 		}
 
