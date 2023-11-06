@@ -12,7 +12,7 @@ que se les agoten los intentos.*/
 int main()
 {
 
-	//animacion_de_carga();
+	animacion_de_carga();
 	do
 	{
 		switch (menu_principal())
@@ -62,12 +62,12 @@ int main()
 		}
 		case -4:
 		{
-			cout << "Gracias por jugar" << endl;
 			break;
 		}
 		}
 	} while (menu_principal() != -4);
 
-
+	system("cls");
+	animacion_de_carga();
 
 }
