@@ -39,7 +39,7 @@ int menu_principal()
 	int separacion_op_horizontales = 92;
 
 
-	// Establecer el color de fondo de la consola (en este caso, rojo)
+	// Establecer el color de fondo de la consola
 	rlutil::setBackgroundColor(rlutil::LIGHTCYAN);
 	// Borrar la pantalla para que el color de fondo se aplique en toda la consola
 	rlutil::cls();

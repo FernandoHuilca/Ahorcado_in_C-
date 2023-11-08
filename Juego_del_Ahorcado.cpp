@@ -11,6 +11,7 @@ que se les agoten los intentos.*/
 
 int main()
 {
+	bool salir = true; 
 
 	animacion_de_carga();
 	do
@@ -62,12 +63,11 @@ int main()
 		}
 		case -4:
 		{
+			salir = false;
 			break;
 		}
 		}
-	} while (menu_principal() != -4);
+	} while (salir);
 
-	system("cls");
-	animacion_de_carga();
-
+	system("cls"); 
 }
